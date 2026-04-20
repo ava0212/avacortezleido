@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Ava Cortez Leido | One Tolentino East Residences</title>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --pine:#1a2e22;--sage:#4a7c5b;--mist:#c8d9cc;--cream:#f5f0e8;
+      --gold:#b8975a;--goldl:#d4b87a;--white:#fdfcfa;--text:#3a3a3a;
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:'Segoe UI',Arial,sans-serif;background:var(--white);color:var(--text);overflow-x:hidden}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px 48px;background:rgba(26,46,34,0.95);border-bottom:1px solid rgba(184,151,90,0.2)}
+    .nav-name{font-size:1.15rem;font-weight:700;color:var(--goldl);letter-spacing:.04em}
+    .nav-sub{font-size:.65rem;color:var(--mist);letter-spacing:.18em;text-transform:uppercase}
+    .nav-links{display:flex;gap:28px;list-style:none}
+    .nav-links a{color:var(--mist);text-decoration:none;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;transition:color .3s}
+    .nav-links a:hover{color:var(--goldl)}
+    .nav-cta{background:var(--gold);color:var(--pine);padding:10px 22px;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;text-decoration:none;transition:background .3s}
+    .nav-cta:hover{background:var(--goldl)}
+    #hero{min-height:100vh;background:linear-gradient(160deg,var(--pine) 0%,#0f1e16 50%,#1c3425 100%);display:flex;align-items:center;position:relative;overflow:hidden}
+    .hero-glow{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(74,124,91,.22) 0%,transparent 70%);top:-80px;right:-80px;pointer-events:none}
+    .hero-inner{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:120px 48px 80px;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+    .hero-eyebrow{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+    .hero-h1{font-size:clamp(2.6rem,5vw,4.2rem);font-weight:300;line-height:1.1;color:var(--white)}
+    .hero-h1 em{font-style:italic;color:var(--goldl)}
+    .hero-p{margin-top:18px;font-size:.97rem;color:var(--mist);font-weight:300;line-height:1.75;max-width:440px}
+    .hero-btns{margin-top:36px;display:flex;gap:14px;flex-wrap:wrap}
+    .btn-gold{background:var(--gold);color:var(--pine);padding:13px 34px;font-size:.78rem;letter-spacing:.13em;text-transform:uppercase;font-weight:600;text-decoration:none;display:inline-block;border:none;cursor:pointer;transition:all .3s}
+    .btn-gold:hover{background:var(--goldl);transform:translateY(-2px)}
+    .btn-ghost{background:transparent;color:var(--mist);padding:13px 34px;border:1px solid rgba(200,217,204,.3);font-size:.78rem;letter-spacing:.13em;text-transform:uppercase;font-weight:400;text-decoration:none;display:inline-block;transition:all .3s}
+    .btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+    .hero-card{background:rgba(255,255,255,.04);border:1px solid rgba(184,151,90,.2);padding:36px;position:relative}
+    .hero-card::before{content:'';position:absolute;top:0;left:0;width:56px;height:3px;background:var(--gold)}
+    .prop-thumb{width:100%;aspect-ratio:4/3;background:linear-gradient(135deg,rgba(74,124,91,.35) 0%,rgba(26,46,34,.85) 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;margin-bottom:22px;border:1px dashed rgba(184,151,90,.3)}
+    .prop-thumb .icon{font-size:2.8rem;margin-bottom:8px;opacity:.7}
+    .prop-thumb p{color:var(--mist);font-size:.72rem;letter-spacing:.1em}
+    .prop-name{font-size:1.5rem;font-weight:700;color:var(--white);margin-bottom:6px}
+    .prop-loc{font-size:.75rem;color:var(--gold);letter-spacing:.08em;margin-bottom:18px}
+    .badges{display:flex;gap:8px;flex-wrap:wrap}
+    .badge{padding:4px 12px;border:1px solid rgba(184,151,90,.4);font-size:.68rem;color:var(--mist);letter-spacing:.1em;text-transform:uppercase}
+    .stats{background:var(--gold);padding:26px 48px;display:flex;justify-content:center;gap:72px;flex-wrap:wrap}
+    .stat-n{font-size:2rem;font-weight:700;color:var(--pine);line-height:1}
+    .stat-l{font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(26,46,34,.7);margin-top:4px}
+    section{padding:96px 48px}
+    .si{max-width:1200px;margin:0 auto}
+    .ey{font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:var(--sage);margin-bottom:12px}
+    .sh{font-size:clamp(1.9rem,3.2vw,2.8rem);font-weight:300;color:var(--pine);line-height:1.2}
+    .sh em{font-style:italic;color:var(--sage)}
+    .div{width:56px;height:2px;background:var(--gold);margin:22px 0}
+    #property{background:var(--cream)}
+    .pg{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;margin-top:54px}
+    .pd{font-size:.97rem;line-height:1.85;color:var(--text);font-weight:300}
+    .specs{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+    .spec{background:var(--white);padding:22px 18px;border-left:3px solid transparent;transition:border-color .3s}
+    .spec:hover{border-left-color:var(--gold)}
+    .sl{font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sage);margin-bottom:5px}
+    .sv{font-size:1.2rem;font-weight:700;color:var(--pine)}
+    #units{background:var(--pine)}
+    #units .sh{color:var(--white)}
+    #units .ey{color:var(--gold)}
+    .ug{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:54px}
+    .uc{background:rgba(255,255,255,.04);padding:32px 26px;border-top:3px solid rgba(184,151,90,.3);transition:border-color .4s}
+    .uc:hover{border-top-color:var(--gold)}
+    .ut{font-size:2rem;font-weight:700;color:var(--goldl);margin-bottom:6px}
+    .un{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mist);margin-bottom:18px}
+    .uf{list-style:none}
+    .uf li{font-size:.8rem;color:rgba(200,217,204,.8);padding:5px 0;border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:center;gap:8px}
+    .uf li::before{content:'—';color:var(--gold);font-size:.68rem}
+    #amenities{background:var(--white)}
+    .ag{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:54px}
+    .ac{padding:30px;border:1px solid rgba(74,124,91,.15);transition:all .3s;position:relative}
+    .ac::before{content:'';position:absolute;top:0;left:0;width:0;height:2px;background:var(--gold);transition:width .4s}
+    .ac:hover::before{width:100%}
+    .ac:hover{background:var(--cream)}
+    .ai{font-size:1.7rem;margin-bottom:12px}
+    .an{font-size:1.1rem;font-weight:600;color:var(--pine);margin-bottom:5px}
+    .ad{font-size:.78rem;color:#666;line-height:1.6;font-weight:300}
+    #location{background:var(--cream)}
+    .lg{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;margin-top:54px}
+    .la{background:var(--pine);padding:36px;color:var(--white);margin-bottom:22px}
+    .la h4{font-size:1.3rem;font-weight:700;color:var(--goldl);margin-bottom:10px}
+    .la p{font-size:.86rem;line-height:1.7;color:var(--mist);font-weight:300}
+    .li-list{display:flex;flex-direction:column;gap:14px}
+    .li{display:flex;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px solid rgba(74,124,91,.15)}
+    .li:last-child{border:none}
+    .li-icon{font-size:1.1rem;flex-shrink:0;margin-top:2px}
+    .li strong{display:block;font-size:.83rem;color:var(--pine);margin-bottom:2px}
+    .li span{font-size:.76rem;color:#666;font-weight:300}
+    .map-ph{width:100%;aspect-ratio:4/3;background:linear-gradient(135deg,#d4e8da 0%,#9cbfaa 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;border:1px solid rgba(74,124,91,.2);position:relative;overflow:hidden}
+    .map-ph::before{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,rgba(74,124,91,.1) 0,transparent 1px,transparent 30px),repeating-linear-gradient(90deg,rgba(74,124,91,.1) 0,transparent 1px,transparent 30px)}
+    .map-pin{font-size:2.8rem;z-index:1}
+    .map-lbl{font-size:1rem;font-weight:600;color:var(--pine);z-index:1;margin-top:8px}
+    #agent{background:linear-gradient(135deg,var(--pine) 0%,#0f1e16 100%)}
+    .agi{max-width:860px;margin:0 auto;text-align:center}
+    .av{width:130px;height:130px;border-radius:50%;background:linear-gradient(135deg,var(--sage),var(--pine));margin:0 auto 28px;display:flex;align-items:center;justify-content:center;border:3px solid var(--gold);font-size:2.8rem;box-shadow:0 0 0 8px rgba(184,151,90,.1)}
+    .ag-lbl{font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+    .ag-name{font-size:2.8rem;font-weight:300;color:var(--white);margin-bottom:7px}
+    .ag-cred{font-size:.78rem;color:var(--mist);letter-spacing:.1em;margin-bottom:36px}
+    .ag-q{font-size:1.3rem;font-style:italic;color:var(--mist);line-height:1.65;max-width:620px;margin:0 auto 44px;padding:30px;border:1px solid rgba(184,151,90,.2);position:relative}
+    .ag-q::before{content:'\201C';font-size:3.8rem;color:var(--gold);position:absolute;top:-10px;left:18px;line-height:1}
+    .cc{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin-top:36px}
+    .c-card{background:rgba(255,255,255,.05);border:1px solid rgba(184,151,90,.25);padding:22px 30px;text-align:center;min-width:190px;transition:all .3s}
+    .c-card:hover{background:rgba(184,151,90,.1);border-color:var(--gold)}
+    .c-icon{font-size:1.4rem;margin-bottom:8px}
+    .c-lbl{font-size:.63rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:5px}
+    .c-val{font-size:.92rem;color:var(--white)}
+    .c-val a{color:var(--white);text-decoration:none}
+    #cta{background:var(--gold);padding:76px 48px;text-align:center}
+    #cta h2{font-size:2.6rem;font-weight:300;color:var(--pine);margin-bottom:10px}
+    #cta p{font-size:.97rem;color:rgba(26,46,34,.75);margin-bottom:32px;font-weight:300}
+    .cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+    .btn-dark{background:var(--pine);color:var(--goldl);padding:15px 38px;font-size:.8rem;letter-spacing:.13em;text-transform:uppercase;font-weight:600;text-decoration:none;display:inline-block;transition:all .3s;border:none;cursor:pointer}
+    .btn-dark:hover{background:#0f1e16;transform:translateY(-2px)}
+    .btn-od{background:transparent;color:var(--pine);padding:15px 38px;border:2px solid var(--pine);font-size:.8rem;letter-spacing:.13em;text-transform:uppercase;font-weight:600;text-decoration:none;display:inline-block;transition:all .3s}
+    .btn-od:hover{background:rgba(26,46,34,.1)}
+    footer{background:#0a140d;padding:36px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+    .f-brand{font-size:1.05rem;font-weight:700;color:var(--gold)}
+    .f-copy,.f-dev{font-size:.7rem;color:rgba(200,217,204,.4)}
+    .f-dev a{color:var(--gold);text-decoration:none}
+    .fu{opacity:0;transform:translateY(36px);transition:opacity .75s ease,transform .75s ease}
+    .fu.vis{opacity:1;transform:translateY(0)}
+    @media(max-width:900px){
+      nav{padding:14px 20px}.nav-links{display:none}
+      section{padding:64px 20px}
+      .hero-inner{grid-template-columns:1fr;gap:40px;padding:100px 20px 56px}
+      .pg,.lg{grid-template-columns:1fr;gap:36px}
+      .ug{grid-template-columns:1fr 1fr}
+      .ag{grid-template-columns:1fr 1fr}
+      .stats{gap:36px;padding:22px 20px}
+      footer{flex-direction:column;text-align:center}
+      #cta{padding:60px 20px}
+    }
+    @media(max-width:580px){
+      .ug,.ag,.specs{grid-template-columns:1fr}
+      .cc{flex-direction:column;align-items:center}
+      .hero-h1{font-size:2.4rem}
+      .cta-btns{flex-direction:column;align-items:center}
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div>
+      <div class="nav-name">Ava Cortez Leido</div>
+      <div class="nav-sub">Property Specialist · Philippines</div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#property">Property</a></li>
+      <li><a href="#units">Units</a></li>
+      <li><a href="#amenities">Amenities</a></li>
+      <li><a href="#location">Location</a></li>
+      <li><a href="#agent">Contact</a></li>
+    </ul>
+    <a href="tel:+639190014369" class="nav-cta">Call Now</a>
+  </nav>
+  
+  <section id="hero">
+    <div class="hero-glow"></div>
+    <div class="hero-inner">
+      <div>
+        <p class="hero-eyebrow">Exclusively Presented By Ava Cortez Leido</p>
+        <h1 class="hero-h1">One With Your<br><em>Breath.</em><br>One With Tagaytay.</h1>
+        <p class="hero-p">Discover the most promising pre-selling condominium in Tagaytay City. Cool mountain air, scenic vistas, and refined living converge into one extraordinary address.</p>
+        <div class="hero-btns">
+          <a href="#agent" class="btn-gold">Inquire Now</a>
+          <a href="#property" class="btn-ghost">Explore Property</a>
+        </div>
+      </div>
+      <div>
+        <div class="hero-card">
+          <div class="prop-thumb">
+            <div class="icon">🏙️</div>
+            <p>One Tolentino East Residences</p>
+          </div>
+          <div class="prop-name">One Tolentino East Residences</div>
+          <div class="prop-loc">📍 Isaac O. Tolentino Ave, Brgy. Tolentino East, Tagaytay City</div>
+          <div class="badges">
+            <span class="badge">Pre-Selling</span>
+            <span class="badge">1BR – Penthouse</span>
+            <span class="badge">22 Levels</span>
+            <span class="badge">4 Parking Levels</span>
+            <span class="badge">OTE Dev Corp</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <div class="stats">
+    <div><div class="stat-n">9,221</div><div class="stat-l">sqm Land Area</div></div>
+    <div><div class="stat-n">22</div><div class="stat-l">Levels</div></div>
+    <div><div class="stat-n">4</div><div class="stat-l">Unit Types</div></div>
+    <div><div class="stat-n">4</div><div class="stat-l">Parking Levels</div></div>
+  </div>
+  
+  <section id="property">
+    <div class="si">
+      <p class="ey fu">The Property</p>
+      <h2 class="sh fu">Tagaytay's Most <em>Promising</em> Address</h2>
+      <div class="div fu"></div>
+      <div class="pg">
+        <div class="fu">
+          <p class="pd">One Tolentino East Residences is a landmark condominium development rising in the heart of Tagaytay City. Developed by OTE Dev Corp, this pre-selling project is designed for those who seek the perfect balance of urban convenience and mountain serenity.</p>
+          <br>
+          <p class="pd">Whether you're looking for a personal sanctuary, a vacation retreat, or a smart real estate investment, One Tolentino East Residences delivers an unparalleled lifestyle in a location that simply cannot be replicated.</p>
+          <br>
+          <p class="pd">With sweeping views, cool breezes year-round, and a meticulously designed residential tower, this is your invitation to live differently. Elevated.</p>
+        </div>
+        <div class="specs fu">
+          <div class="spec"><div class="sl">Developer</div><div class="sv">OTE Dev Corp</div></div>
+          <div class="spec"><div class="sl">Type</div><div class="sv">Condominium</div></div>
+          <div class="spec"><div class="sl">Land Area</div><div class="sv">9,221 sqm</div></div>
+          <div class="spec"><div class="sl">Status</div><div class="sv">Pre-Selling</div></div>
+          <div class="spec"><div class="sl">Tower</div><div class="sv">22 Levels</div></div>
+          <div class="spec"><div class="sl">Parking</div><div class="sv">2 Podium + 2 Basement</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section id="units">
+    <div class="si">
+      <p class="ey fu">Unit Types</p>
+      <h2 class="sh fu">Find Your <em>Perfect</em> Home</h2>
+      <div class="div fu"></div>
+      <div class="ug">
+        <div class="uc fu"><div class="ut">1BR</div><div class="un">One Bedroom</div><ul class="uf"><li>Intimate & efficient layout</li><li>Ideal for singles & couples</li><li>Excellent rental potential</li><li>Smart vacation unit</li></ul></div>
+        <div class="uc fu"><div class="ut">2BR</div><div class="un">Two Bedroom</div><ul class="uf"><li>Spacious family living</li><li>Ideal for small families</li><li>Flexible room use</li><li>Great investment value</li></ul></div>
+        <div class="uc fu"><div class="ut">3BR</div><div class="un">Three Bedroom</div><ul class="uf"><li>Premium family space</li><li>Multiple bedroom suites</li><li>Generous living area</li><li>High appreciation value</li></ul></div>
+        <div class="uc fu"><div class="ut">PH</div><div class="un">Penthouse</div><ul class="uf"><li>Top-floor prestige</li><li>Panoramic Tagaytay views</li><li>Exclusive luxury living</li><li>Finest unit in tower</li></ul></div>
+      </div>
+    </div>
+  </section>
+  
+  <section id="amenities">
+    <div class="si">
+      <p class="ey fu">Amenities</p>
+      <h2 class="sh fu">Designed for <em>Elevated</em> Living</h2>
+      <div class="div fu"></div>
+      <div class="ag">
+        <div class="ac fu"><div class="ai">🏊</div><div class="an">Swimming Pool</div><div class="ad">A refreshing pool experience set against the cool Tagaytay air. The perfect way to unwind.</div></div>
+        <div class="ac fu"><div class="ai">🛋️</div><div class="an">Lobby Lounge</div><div class="ad">Elegant multi-level lobby lounges that welcome you home in style and comfort every single day.</div></div>
+        <div class="ac fu"><div class="ai">🏋️</div><div class="an">Fitness Area</div><div class="ad">A well-equipped gym space so you can maintain your active lifestyle without leaving the building.</div></div>
+        <div class="ac fu"><div class="ai">🎪</div><div class="an">Function Room</div><div class="ad">Versatile event and gathering spaces for celebrations, meetings, and community activities.</div></div>
+        <div class="ac fu"><div class="ai">🌿</div><div class="an">Garden & Roof Lounge</div><div class="ad">Lush garden lounge areas and a rooftop garden that bring nature right to your doorstep.</div></div>
+        <div class="ac fu"><div class="ai">🏪</div><div class="an">Commercial Spaces</div><div class="ad">Ground-floor retail, dining, and lifestyle convenience within the building.</div></div>
+        <div class="ac fu"><div class="ai">📚</div><div class="an">Reading Lounge</div><div class="ad">A quiet, curated reading lounge for moments of peace and contemplation.</div></div>
+        <div class="ac fu"><div class="ai">🅿️</div><div class="an">Podium & Basement Parking</div><div class="ad">2 podium + 2 basement parking levels providing ample, secure parking for residents and guests.</div></div>
+        <div class="ac fu"><div class="ai">🚗</div><div class="an">Driver's Lounge</div><div class="ad">A dedicated driver's lounge. A thoughtful amenity that reflects true attention to detail.</div></div>
+      </div>
+    </div>
+  </section>
+  
+  <section id="location">
+    <div class="si">
+      <p class="ey fu">Location</p>
+      <h2 class="sh fu">In the <em>Heart</em> of Tagaytay</h2>
+      <div class="div fu"></div>
+      <div class="lg">
+        <div class="fu">
+          <div class="la">
+            <h4>📍 One Tolentino East Residences</h4>
+            <p>Isaac O. Tolentino Avenue<br>Barangay Tolentino East<br>Tagaytay City, Cavite, Philippines</p>
+          </div>
+          <div class="li-list">
+            <div class="li"><div class="li-icon">🌋</div><div><strong>Taal Volcano Views</strong><span>One of the most iconic natural vistas in the Philippines at your doorstep</span></div></div>
+            <div class="li"><div class="li-icon">🌡️</div><div><strong>Cool Mountain Climate</strong><span>Tagaytay's refreshing highland climate year-round. A natural escape from Metro Manila</span></div></div>
+            <div class="li"><div class="li-icon">🛣️</div><div><strong>Accessible from Manila</strong><span>Approximately 1 to 2 hours via SLEX and Aguinaldo Highway</span></div></div>
+            <div class="li"><div class="li-icon">🍽️</div><div><strong>Dining & Lifestyle Hubs</strong><span>Close to Tagaytay's famous restaurants, cafes, malls, and leisure destinations</span></div></div>
+          </div>
+        </div>
+        <div class="fu">
+          <div class="map-ph">
+            <div class="map-pin">📍</div>
+            <div class="map-lbl">Tagaytay City, Cavite</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section id="agent">
+    <div class="si">
+      <div class="agi">
+        <div class="av">👩‍💼</div>
+        <p class="ag-lbl">Your Trusted Real Estate Partner</p>
+        <h2 class="ag-name">Ava Cortez Leido</h2>
+        <p class="ag-cred">Property Specialist · OTE Dev Corp · Philippines</p>
+        <div class="ag-q">I'm here to guide you every step of the way, from your first inquiry to the moment you hold the keys to your dream home in Tagaytay. Your investment, your future, and your peace of mind are my priority.</div>
+        <div class="cc">
+          <div class="c-card"><div class="c-icon">📞</div><div class="c-lbl">Call or Viber</div><div class="c-val"><a href="tel:+639190014369">+63 919-001-4369</a></div></div>
+          <div class="c-card"><div class="c-icon">💬</div><div class="c-lbl">WhatsApp / SMS</div><div class="c-val"><a href="https://wa.me/639190014369">+63 919-001-4369</a></div></div>
+          <div class="c-card"><div class="c-icon">🌐</div><div class="c-lbl">Learn More</div><div class="c-val"><a href="https://oteresidences.com" target="_blank">oteresidences.com</a></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section id="cta">
+    <h2>Ready to Find Your Home in Tagaytay?</h2>
+    <p>Reserve your unit today. Limited slots available for this pre-selling development.</p>
+    <div class="cta-btns">
+      <a href="tel:+639190014369" class="btn-dark">📞 Call Ava Now</a>
+      <a href="https://oteresidences.com/properties/one-tolentino-east-residences/" target="_blank" class="btn-od">View Full Property Details</a>
+    </div>
+  </section>
+  
+  <footer>
+    <div class="f-brand">Ava Cortez Leido · Property Specialist</div>
+    <div class="f-copy">One Tolentino East Residences · Tagaytay City, Philippines</div>
+    <div class="f-dev">Property by <a href="https://oteresidences.com" target="_blank">OTE Dev Corp</a></div>
+  </footer>
+  
+  <script>
+    const obs = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting) e.target.classList.add('vis') }), {threshold:.1,rootMargin:'0px 0px -36px 0px'});
+    document.querySelectorAll('.fu').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>
